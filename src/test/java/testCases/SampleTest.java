@@ -83,6 +83,39 @@ public class SampleTest
 		}
 		Thread.sleep(5000);
 	
+		try
+		{
+		driver.findElement(By.xpath("//input[@class='input location_ac']")).sendKeys("ch");
+		Thread.sleep(2000);
+		
+		List<WebElement> chi=driver.findElements(By.xpath("//div[@class='ac_results home_ac custom-v-scroll']//li/descendant::div[@class='location_ac']"));
+		
+		System.out.println(chi.size());
+		
+		for(int j=0;j<=chi.size();j++)
+		{
+			String s=chi.get(j).getText();
+			if(s.contains("China"))
+			{
+				chi.get(j).click();
+				
+			}
+			Thread.sleep(2000);
+			
+		}
+		}
+		catch(Exception e) {
+		
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		driver.close();
 		
